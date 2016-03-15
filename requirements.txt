@@ -1,0 +1,2 @@
+Redis==2.10
+Geventconnpool==0.2
