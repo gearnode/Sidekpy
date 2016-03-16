@@ -1,5 +1,6 @@
 import redis
 import time
+import os
 import signal
 import logging
 import sys
@@ -18,7 +19,7 @@ class HardWorker:
 
 class RedisPool(ConnectionPool):
   def _new_connection(self):
-    conn = redis.StrictRedis(host='localhost', port=6379, db=0)
+    conn = redis.from_url(os.environ['REDIS_URL'])
     return conn
 
 class Poller:
